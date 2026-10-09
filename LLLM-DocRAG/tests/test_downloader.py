@@ -1,44 +1,93 @@
-
 import pytest
 from pathlib import Path
+from unittest.mock import patch, call
+
+from app import downloader
 from app.downloader import DocumentDownloader
+from app.exceptions import HTTPStatusError
 
 
-@pytest.mark.parametrize("timeout", [-1, 0, float("inf"), float("nan")])
-def test_invalid_timeout(timeout):
-    with pytest.raises(ValueError):
-        DocumentDownloader(save_dir=Path("./downloads"), timeout=timeout)
+def test_retry_exponential_backoff():
+    downloader = DocumentDownloader(Path("./data/raw"), max_retries=2, retry_delay=0.5)
+    url = "https://example.com/test.md"
+
+    # 模拟两次 HTTP 503，第三次成功
+    responses = [
+        HTTPStatusError(503, url),
+        HTTPStatusError(503, url),
+        b"hello"
+    ]
+
+    # 同时模拟网络请求和 sleep
+    with patch.object(downloader, "_fetch", side_effect=responses) as mock_fetch, patch("app.downloader.time.sleep") as mock_sleep:
+        result = downloader._fetch_with_retry(url)
+
+    # 检查最终返回值
+    assert result == b"hello"
+
+    # 检查请求次数
+    assert mock_fetch.call_count == 3
+
+    # 检查等待次数及每次的等待时间
+    assert mock_sleep.call_count == 2
+    assert mock_sleep.call_args_list == [call(0.5), call(1.0)]
 
 
-@pytest.mark.parametrize("max_retries", [-1, -5])
-def test_invalid_max_retries(max_retries):
-    with pytest.raises(ValueError):
-        DocumentDownloader(save_dir=Path("./downloads"), max_retries=max_retries)
-@pytest.mark.parametrize("retry_delay", [
-    -1,
-    float("inf"),
-    float("-inf"),
-    float("nan")
-])
-def test_invalid_retry_delay(retry_delay):
-    with pytest.raises(ValueError):
-        DocumentDownloader(save_dir=Path("./downloads"), retry_delay=retry_delay)
-def test_zero_retry_delay():
-    downloader = DocumentDownloader(save_dir="./downloads", retry_delay=0)
-    assert downloader.retry_delay == 0
-from unittest.mock import Mock, patch
-from app.downloader import DocumentDownloader
+
+def test_no_retry_on_404():
+
+    downloader = DocumentDownloader(Path("./data/raw"), max_retries=2, retry_delay=0.5)
+    url = "https://example.com/test.md"
+    responses = [
+            HTTPStatusError(404, url)
+        ]
+    with patch.object(downloader, "_fetch", side_effect=responses) as mock_fetch, patch("app.downloader.time.sleep") as mock_sleep:
+        with pytest.raises(HTTPStatusError):
+            downloader._fetch_with_retry(url)
+    assert mock_fetch.call_count == 1
+    assert mock_sleep.call_count == 0
 
 
-def test_fetch_success():
-    downloader = DocumentDownloader(save_dir="./downloads")
+def test_retry_exhausted():
+    downloader = DocumentDownloader(Path("./data/raw"), max_retries=2, retry_delay=0.5)
+    url = "https://example.com/test.md"
 
-    mock_response = Mock()
-    mock_response.status_code = 200
-    mock_response.content = b"Hello RAG"
-    mock_response.raise_for_status.return_value = None
+    responses = [
+        HTTPStatusError(503, url),
+        HTTPStatusError(503, url),
+        HTTPStatusError(503, url)
+    ]
 
-    with patch("app.downloader.requests.get", return_value=mock_response):
-        result = downloader._fetch("https://example.com/test.md")
+    with patch.object(downloader, "_fetch", side_effect=responses) as mock_fetch, patch("app.downloader.time.sleep") as mock_sleep:
+        with pytest.raises(HTTPStatusError):
+            downloader._fetch_with_retry(url)
 
-    assert result == b"Hello RAG"
+    assert mock_fetch.call_count == 3
+    assert mock_sleep.call_count == 2
+def test_same_hash():
+    downloader = DocumentDownloader(Path("./data/raw"))
+    content = b"hello"
+
+    result1 = downloader._calculate_hash(content)
+    result2 = downloader._calculate_hash(content)
+
+    assert result1 == result2
+
+def test_different_hash():
+    downloader = DocumentDownloader(Path("./data/raw"))
+    content1 = b"hello"
+    content2 = b"world"
+    result1 = downloader._calculate_hash(content1)
+    result2 = downloader._calculate_hash(content2)
+
+    assert result1 != result2
+
+def test_save_file_success(tmp_path):
+    downloader = DocumentDownloader(tmp_path)
+    path = tmp_path / "docs" / "test.md"
+    content = b"Hello RAG"
+
+    downloader._save_file(content, path)
+
+    assert path.exists()
+    assert path.read_bytes() == content

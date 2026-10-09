@@ -1,11 +1,20 @@
 #定义下载器
 import math
+import time
+import hashlib
+import os
 from app.schemas import DocumentSource, DownloaderResult, BatchDownloadResult
-from app.exceptions import DownloadError,NetworkError,HTTPStatusError,InvalidDocumentError
+from app.exceptions import DownloadError,NetworkError,HTTPStatusError,InvalidDocumentError,StorageError,VersionResolutionError
 from pathlib import Path
 from urllib.parse import quote
 import requests
+import logging
+import tempfile
+logger = logging.getLogger(__name__)
+
+
 class DocumentDownloader:
+
     def __init__(self, save_dir: str | Path, timeout: float = 10.0, max_retries: int = 2, retry_delay: float = 0.5):
 
         if not isinstance(timeout, (int, float)) or isinstance(timeout, bool):
@@ -62,14 +71,39 @@ class DocumentDownloader:
         return response.content
 
     def _fetch_with_retry(self, url: str) -> bytes:
-        pass
+        for attempt in range(self.max_retries + 1):
+            try:
+                return self._fetch(url)
+            except DownloadError as e:
+                if not self._should_retry(e) or attempt == self.max_retries:
+                    raise
+                time.sleep(self.retry_delay*pow(2, attempt))       #采用指数退避法则
 
     def _should_retry(self, error: DownloadError) -> bool:
-        pass
+        retryable_status = {429, 500, 502, 503, 504}
+        if isinstance(error, HTTPStatusError):
+            return error.status_code in retryable_status
+        if isinstance(error, NetworkError):
+            return True
+        return False
+
     def _calculate_hash(self,content:bytes)->str:
-        pass
-    def _save_file(self,content:bytes,path:Path)->None:
-        pass
+         return hashlib.sha256(content).hexdigest()
 
-
+    def _save_file(self, content: bytes, path: Path) -> None:
+        temp_path: Path | None = None
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with tempfile.NamedTemporaryFile(mode="wb", dir=path.parent, suffix=".tmp", delete=False) as f:
+                temp_path = Path(f.name)
+                f.write(content)
+            os.replace(temp_path, path)
+        except OSError as e:
+            raise StorageError(f"文件保存失败: {path}") from e
+        finally:
+            if temp_path is not None:
+                try:
+                    temp_path.unlink(missing_ok=True)
+                except OSError:
+                    logger.exception("临时文件清理失败: %s", temp_path)
 
