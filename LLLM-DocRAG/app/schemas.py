@@ -1,6 +1,6 @@
 #定义数据结构
 from dataclasses import dataclass, field
-from typing import Literal
+from typing import Literal,Any
 from pathlib import Path
 
 
@@ -40,8 +40,22 @@ class BatchDownloadResult:
     errors: dict[str, str] = field(default_factory=dict)
 
 @dataclass
+class DocumentSection:
+    title: str
+    level: int
+    content: str
+    heading_path: list[str]
+
+@dataclass
 class ParsedDocument:
     source_path: Path
     title: str
+    sections: list[DocumentSection] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
+
+@dataclass
+class DocumentChunk:
+    chunk_id: str
     content: str
-    metadata: dict
+    metadata: dict[str, Any] = field(default_factory=dict)
+

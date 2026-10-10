@@ -40,3 +40,6 @@ class VersionResolutionError(DownloadError):
     """
     pass
 
+class DocumentParseError(Exception):
+    """文档解析失败"""
+    pass
