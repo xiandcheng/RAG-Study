@@ -1,93 +1,97 @@
 import pytest
-from pathlib import Path
-from unittest.mock import patch, call
-
-from app import downloader
+from unittest.mock import Mock, patch
 from app.downloader import DocumentDownloader
-from app.exceptions import HTTPStatusError
+from app.schemas import DocumentSource, DownloaderResult
+from app.exceptions import DownloadError
 
 
-def test_retry_exponential_backoff():
-    downloader = DocumentDownloader(Path("./data/raw"), max_retries=2, retry_delay=0.5)
-    url = "https://example.com/test.md"
-
-    # 模拟两次 HTTP 503，第三次成功
-    responses = [
-        HTTPStatusError(503, url),
-        HTTPStatusError(503, url),
-        b"hello"
-    ]
-
-    # 同时模拟网络请求和 sleep
-    with patch.object(downloader, "_fetch", side_effect=responses) as mock_fetch, patch("app.downloader.time.sleep") as mock_sleep:
-        result = downloader._fetch_with_retry(url)
-
-    # 检查最终返回值
-    assert result == b"hello"
-
-    # 检查请求次数
-    assert mock_fetch.call_count == 3
-
-    # 检查等待次数及每次的等待时间
-    assert mock_sleep.call_count == 2
-    assert mock_sleep.call_args_list == [call(0.5), call(1.0)]
-
-
-
-def test_no_retry_on_404():
-
-    downloader = DocumentDownloader(Path("./data/raw"), max_retries=2, retry_delay=0.5)
-    url = "https://example.com/test.md"
-    responses = [
-            HTTPStatusError(404, url)
-        ]
-    with patch.object(downloader, "_fetch", side_effect=responses) as mock_fetch, patch("app.downloader.time.sleep") as mock_sleep:
-        with pytest.raises(HTTPStatusError):
-            downloader._fetch_with_retry(url)
-    assert mock_fetch.call_count == 1
-    assert mock_sleep.call_count == 0
-
-
-def test_retry_exhausted():
-    downloader = DocumentDownloader(Path("./data/raw"), max_retries=2, retry_delay=0.5)
-    url = "https://example.com/test.md"
-
-    responses = [
-        HTTPStatusError(503, url),
-        HTTPStatusError(503, url),
-        HTTPStatusError(503, url)
-    ]
-
-    with patch.object(downloader, "_fetch", side_effect=responses) as mock_fetch, patch("app.downloader.time.sleep") as mock_sleep:
-        with pytest.raises(HTTPStatusError):
-            downloader._fetch_with_retry(url)
-
-    assert mock_fetch.call_count == 3
-    assert mock_sleep.call_count == 2
-def test_same_hash():
-    downloader = DocumentDownloader(Path("./data/raw"))
-    content = b"hello"
-
-    result1 = downloader._calculate_hash(content)
-    result2 = downloader._calculate_hash(content)
-
-    assert result1 == result2
-
-def test_different_hash():
-    downloader = DocumentDownloader(Path("./data/raw"))
-    content1 = b"hello"
-    content2 = b"world"
-    result1 = downloader._calculate_hash(content1)
-    result2 = downloader._calculate_hash(content2)
-
-    assert result1 != result2
-
-def test_save_file_success(tmp_path):
+# 1. 部分成功、部分失败
+def test_download_batch_partial_success(tmp_path):
     downloader = DocumentDownloader(tmp_path)
-    path = tmp_path / "docs" / "test.md"
-    content = b"Hello RAG"
+    sources = [
+        DocumentSource("huggingface", "peft", "README.md"),
+        DocumentSource("huggingface", "peft", "missing.md"),
+        DocumentSource("huggingface", "transformers", "README.md")
+    ]
 
-    downloader._save_file(content, path)
+    result1 = Mock(spec=DownloaderResult)
+    result3 = Mock(spec=DownloaderResult)
 
-    assert path.exists()
-    assert path.read_bytes() == content
+    with patch.object(downloader, "download", side_effect=[result1, DownloadError("下载失败"), result3]) as mock_download, \
+         patch.object(downloader, "_source_key", return_value="1:missing.md") as mock_key:
+
+        batch = downloader.download_batch(sources)
+
+    assert batch.results == [result1, result3]
+    assert batch.errors == {"1:missing.md": "下载失败"}
+    assert mock_download.call_count == 3
+    mock_key.assert_called_once_with(1, sources[1])
+
+
+# 2. 所有文档下载成功
+def test_download_batch_all_success(tmp_path):
+    downloader = DocumentDownloader(tmp_path)
+    sources = [
+        DocumentSource("huggingface", "peft", "README.md"),
+        DocumentSource("huggingface", "transformers", "README.md")
+    ]
+
+    results = [Mock(spec=DownloaderResult), Mock(spec=DownloaderResult)]
+
+    with patch.object(downloader, "download", side_effect=results) as mock_download:
+        batch = downloader.download_batch(sources)
+
+    assert batch.results == results
+    assert batch.errors == {}
+    assert mock_download.call_count == 2
+
+
+# 3. 全部下载失败
+def test_download_batch_all_failed(tmp_path):
+    downloader = DocumentDownloader(tmp_path)
+    sources = [DocumentSource("huggingface", "peft", "README.md")]
+
+    with patch.object(downloader, "download", side_effect=DownloadError("下载失败")), \
+         patch.object(downloader, "_source_key", return_value="0:README.md"):
+
+        batch = downloader.download_batch(sources)
+
+    assert batch.results == []
+    assert batch.errors == {"0:README.md": "下载失败"}
+
+
+# 4. 空列表
+def test_download_batch_empty(tmp_path):
+    downloader = DocumentDownloader(tmp_path)
+
+    with patch.object(downloader, "download") as mock_download:
+        batch = downloader.download_batch([])
+
+    assert batch.results == []
+    assert batch.errors == {}
+    mock_download.assert_not_called()
+
+
+# 5. sources 本身不是列表
+@pytest.mark.parametrize("sources", [
+    None,
+    "README.md",
+    ("README.md",)
+])
+def test_download_batch_invalid_container(tmp_path, sources):
+    downloader = DocumentDownloader(tmp_path)
+
+    with pytest.raises(TypeError, match="sources 不是列表"):
+        downloader.download_batch(sources)
+
+
+# 6. 列表包含非法元素
+def test_download_batch_invalid_element(tmp_path):
+    downloader = DocumentDownloader(tmp_path)
+    sources = [
+        DocumentSource("huggingface", "peft", "README.md"),
+        "invalid_source"
+    ]
+
+    with pytest.raises(TypeError, match="DocumentSource"):
+        downloader.download_batch(sources)

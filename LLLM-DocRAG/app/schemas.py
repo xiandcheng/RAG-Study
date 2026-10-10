@@ -38,3 +38,10 @@ class DownloaderResult:
 class BatchDownloadResult:
     results: list[DownloaderResult] = field(default_factory=list)
     errors: dict[str, str] = field(default_factory=dict)
+
+@dataclass
+class ParsedDocument:
+    source_path: Path
+    title: str
+    content: str
+    metadata: dict
