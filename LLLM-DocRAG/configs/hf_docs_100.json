@@ -1,0 +1,611 @@
+{
+  "selected_count": 100,
+  "pinned_commits": {
+    "transformers": "536ecc007387a50e77603bb5d92100e9b07514cc",
+    "peft": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+    "trl": "72cf37df714d3183e8e96ec391d474b26eaa30b6",
+    "accelerate": "4ebc726849a2d7f03c16198847c22954e224dd87"
+  },
+  "sources": [
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/community_integrations/nemo_automodel_finetuning.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/community_integrations/nemo_automodel_pretraining.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/model_memory_anatomy.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/deepspeed.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/deepspeed_alst.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/fsdp.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/internal/trainer_utils.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/quicktour.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/trainer_callbacks.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/trainer_customize.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/trainer_recipes.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/generation_features.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/generation_strategies.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/internal/generation_utils.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/add_new_pipeline.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/chat_content_patterns.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/chat_extras.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/chat_response_parsing.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/chat_templating.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/chat_templating_multimodal.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/chat_templating_writing.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/internal/pipelines_utils.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/peft.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/pipeline_gradio.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/pipeline_tutorial.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/pipeline_webserver.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/installation.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/mixed_precision_training.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/training.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/accelerate.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/accelerator_selection.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/custom_tokenizers.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/fast_tokenizers.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/internal/tokenization_utils.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/tokenizer_summary.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/add_new_model.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/custom_models.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/how_to_hack_models.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "path": "docs/source/en/internal/model_debugging_utils.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/developer_guides/memory_efficient_training.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/guides/peft_model_config.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/developer_guides/quantization.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/adalora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/delora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/glora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/gralora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/lora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/lora_conversion.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/lora_variant_bdlora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/lora_variant_dora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/lora_variant_kasa.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/lora_variant_monteclora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/lora_variant_velora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/peft_model.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/randlora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/tinylora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/unilora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/vblora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/xlora.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/quicktour.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/guides/peft_integrations.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/adapter_utils.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/llama_adapter.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "peft",
+      "path": "docs/source/package_reference/peft_types.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/async_grpo_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/dpo_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/grpo_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/online_dpo_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/sdpo_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/sft_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/lora_without_regret.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/deepspeed_integration.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/a2po_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/async_distillation_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/cpo_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/distillation_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/gkd_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/gold_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/iw_opd_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/kto_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/orpo_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/quickstart.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/reward_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "trl",
+      "path": "docs/source/rloo_trainer.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/concept_guides/fsdp_and_deepspeed.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/usage_guides/distributed_inference.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/concept_guides/big_model_inference.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/usage_guides/deepspeed_multiple_model.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/concept_guides/fsdp1_vs_fsdp2.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/concept_guides/low_precision_training.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/concept_guides/training_tpu.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/usage_guides/deepspeed.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/usage_guides/fsdp.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/usage_guides/quantization.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/quicktour.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/package_reference/deepspeed.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/package_reference/fsdp.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/usage_guides/low_precision_training.md",
+      "ref": "main"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "accelerate",
+      "path": "docs/source/usage_guides/training_zoo.md",
+      "ref": "main"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/community_integrations/nemo_automodel_pretraining.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "00138c5832f28bdb5adb707f157b71569310403e4bff75976131c9ec9ae847b0"
+}

@@ -16,7 +16,7 @@ import tempfile
 from typing import Literal
 logger = logging.getLogger(__name__)
 DownloadStatus = Literal["downloaded", "updated", "unchanged"]
-
+from urllib.parse import urlsplit
 class DocumentDownloader:
 
     def __init__(self, save_dir: str | Path, timeout: float = 10.0, max_retries: int = 2, retry_delay: float = 0.5):
@@ -194,8 +194,14 @@ class DocumentDownloader:
         :param url:
         :return:
         """
+        headers = {"User-Agent": "LLM-DocRAG/1.0"}
+        if urlsplit(url).scheme == "https" and urlsplit(url).hostname == "api.github.com":
+            token = os.getenv("GITHUB_TOKEN")
+            headers["Accept"] = "application/vnd.github+json"
+            if token:
+                headers["Authorization"] = f"Bearer {token}"
         try:
-            response = requests.get(url, timeout=self.timeout)
+            response = requests.get(url, timeout=self.timeout ,headers=headers)
             response.raise_for_status()
         except requests.exceptions.Timeout as e:
             raise NetworkError(f"请求超时: {url}") from e

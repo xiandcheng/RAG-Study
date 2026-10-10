@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "peft",
+  "path": "docs/source/developer_guides/memory_efficient_training.md",
+  "ref": "main",
+  "commit_sha": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+  "content_hash": "ff1d514ae036df6d6761c006e009edfa47712a0e1a0046eca02ffbe4b9cbf428"
+}

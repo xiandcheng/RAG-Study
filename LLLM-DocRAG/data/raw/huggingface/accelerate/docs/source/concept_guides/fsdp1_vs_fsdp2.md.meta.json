@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "accelerate",
+  "path": "docs/source/concept_guides/fsdp1_vs_fsdp2.md",
+  "ref": "main",
+  "commit_sha": "4ebc726849a2d7f03c16198847c22954e224dd87",
+  "content_hash": "3d09e2aa86a09a5be37ebe2eff1859c14d8578f4f8e33fe741aafbc33fb06330"
+}

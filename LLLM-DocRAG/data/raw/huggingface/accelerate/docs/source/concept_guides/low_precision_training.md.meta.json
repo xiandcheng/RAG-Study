@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "accelerate",
+  "path": "docs/source/concept_guides/low_precision_training.md",
+  "ref": "main",
+  "commit_sha": "4ebc726849a2d7f03c16198847c22954e224dd87",
+  "content_hash": "402893e49689ba50820b54b7d6e284a1af13b1bcf77594db6544342e8f85525c"
+}

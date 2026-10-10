@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/internal/tokenization_utils.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "263633f6a64e2b7b23216e4af2d16b05d52e6a74c1a4fbcc6d06f23c36b813c5"
+}

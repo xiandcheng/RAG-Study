@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "accelerate",
+  "path": "docs/source/concept_guides/training_tpu.md",
+  "ref": "main",
+  "commit_sha": "4ebc726849a2d7f03c16198847c22954e224dd87",
+  "content_hash": "7d8d6bfc11e6348ca091940c6726fe63561491f72982eab0092a5be7b6d1a71c"
+}

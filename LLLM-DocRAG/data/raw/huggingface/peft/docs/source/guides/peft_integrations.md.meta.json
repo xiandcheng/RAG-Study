@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "peft",
+  "path": "docs/source/guides/peft_integrations.md",
+  "ref": "main",
+  "commit_sha": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+  "content_hash": "0a6e2817aded09278e81a24c4ce92799d189fbec1e76840fdfc42bf48c2b6fcc"
+}

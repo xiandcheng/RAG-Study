@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/deepspeed_alst.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "98ab7af8fdf9259be54d99bfdb262d4c3989eecd34da48d9e8ef0cece04b25ce"
+}
