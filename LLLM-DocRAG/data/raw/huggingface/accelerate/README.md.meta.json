@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "owner": "huggingface",
-  "repo": "accelerate",
-  "path": "README.md",
-  "ref": "main",
-  "commit_sha": "4ebc726849a2d7f03c16198847c22954e224dd87",
-  "content_hash": "c201cf5121bea21d8c0d9621803d50379b85facb2bc5719e11d181d595d93a53"
-}

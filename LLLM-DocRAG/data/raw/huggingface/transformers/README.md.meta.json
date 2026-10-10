@@ -1,9 +1,0 @@
-{
-  "schema_version": 1,
-  "owner": "huggingface",
-  "repo": "transformers",
-  "path": "README.md",
-  "ref": "main",
-  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
-  "content_hash": "c7927a5d539f969b9277094b698af45ff864451c0adc432827c48ee7a99c78cb"
-}
