@@ -1,5 +1,5 @@
 from app.chunker import SectionChunker
-from app.storage import EmbeddingModel
+from app.embedding import EmbeddingModel
 from app.parser import MarkdownParser
 from app.vector_store import FAISSVectorStore
 from pathlib import Path

@@ -1,11 +1,11 @@
 import numpy as np
-from app.storage import EmbeddingModel
+from app.embedding import EmbeddingModel
 import tiktoken
 import torch
 from sentence_transformers import SentenceTransformer
 from app.chunker import SectionChunker
 from app.schemas import DocumentChunk
-from app.storage import EmbeddingModel
+from app.embedding import EmbeddingModel
 from app.parser import MarkdownParser
 from pathlib import Path
 
