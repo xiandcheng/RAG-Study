@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/generation_features.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "b825865b43bc39b9d0ac8e1c7ea4c16eec58f703d4452e6067c6d21da0f151bb"
+}

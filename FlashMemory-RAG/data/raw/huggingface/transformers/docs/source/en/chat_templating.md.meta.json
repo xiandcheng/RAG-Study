@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/chat_templating.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "fde1fe10c841e760fa70d3e2852728ab7051ca8ae9703a010b16e2d830f5a1c4"
+}

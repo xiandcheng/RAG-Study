@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/add_new_model.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "2d6b5f97848f28cc9ea32a7f398ebec6fe422ca59fe358bddb5d4eef50de57fb"
+}

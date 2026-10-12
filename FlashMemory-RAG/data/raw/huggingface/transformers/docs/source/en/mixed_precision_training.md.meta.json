@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/mixed_precision_training.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "47c616b9a4895e8627fae2387a191f4f3b49bf8f1ca8a29be43fbb2851c45ce2"
+}

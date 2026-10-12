@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "trl",
+  "path": "docs/source/cpo_trainer.md",
+  "ref": "main",
+  "commit_sha": "72cf37df714d3183e8e96ec391d474b26eaa30b6",
+  "content_hash": "8639897de416cdc0f3b773bdb2d0ac07c7684f84375cd15da2ebebda40d81713"
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "trl",
+  "path": "docs/source/iw_opd_trainer.md",
+  "ref": "main",
+  "commit_sha": "72cf37df714d3183e8e96ec391d474b26eaa30b6",
+  "content_hash": "c65f4ef21f7716c0547c6e718053689d0b41a4613777137e2dc0ce0804c9a8ec"
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/accelerate.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "6e0e9dfb08930e6ee3ac48d3aa7f1cc2a24c075fb8353600c0d64fa1288de1ad"
+}

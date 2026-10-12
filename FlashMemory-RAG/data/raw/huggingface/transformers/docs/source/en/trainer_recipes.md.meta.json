@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/trainer_recipes.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "6e684cdd466fe4e37b7c0310a6143c29ff2b71c1d472648f1a5cb1d4d4216653"
+}

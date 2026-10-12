@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/chat_templating_multimodal.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "c4d78a0d45dc7b6c37c8d20f99ecc82c2d521b809f5821178b8974e45dd6cfd1"
+}

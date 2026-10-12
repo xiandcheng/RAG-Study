@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/community_integrations/nemo_automodel_finetuning.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "d61048ac69178688bf11265fb0bc4af6362354abd9f8e569a8c994ddd6ac5d2a"
+}

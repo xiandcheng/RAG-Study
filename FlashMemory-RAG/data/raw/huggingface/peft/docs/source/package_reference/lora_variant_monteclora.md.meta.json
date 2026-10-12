@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "peft",
+  "path": "docs/source/package_reference/lora_variant_monteclora.md",
+  "ref": "main",
+  "commit_sha": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+  "content_hash": "8f6e54df6580c0ad24643e75e7764f3282a46481410a37d467ddb5c51ea6f997"
+}

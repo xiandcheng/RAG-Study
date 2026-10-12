@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/internal/trainer_utils.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "16987722a93b88f46456249400aa22daa28f40f70aa3b4ae1c281c7e1a2b4ab0"
+}

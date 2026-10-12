@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/internal/model_debugging_utils.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "d7357302d5ca52a32f868e5d36451fce5a103a4d65ab18909d90b4fa58fae628"
+}

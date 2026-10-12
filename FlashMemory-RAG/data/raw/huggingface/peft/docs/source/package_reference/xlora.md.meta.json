@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "peft",
+  "path": "docs/source/package_reference/xlora.md",
+  "ref": "main",
+  "commit_sha": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+  "content_hash": "cac164eb261bdfb10066eddd5da6b9b5e5e7b71fe4d5e000996c2d4fff396ced"
+}

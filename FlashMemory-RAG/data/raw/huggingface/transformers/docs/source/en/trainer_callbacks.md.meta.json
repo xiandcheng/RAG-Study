@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "transformers",
+  "path": "docs/source/en/trainer_callbacks.md",
+  "ref": "main",
+  "commit_sha": "536ecc007387a50e77603bb5d92100e9b07514cc",
+  "content_hash": "4c72ba775041680ca88387c0cc2caeb67bde71f25e32f8a76d39c59a4c4117f8"
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "trl",
+  "path": "docs/source/deepspeed_integration.md",
+  "ref": "main",
+  "commit_sha": "72cf37df714d3183e8e96ec391d474b26eaa30b6",
+  "content_hash": "83c8bb769a72f0ef30ad0f921844854ecbf7d4ff2fb7bdcdf563350b14b7c060"
+}

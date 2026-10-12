@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "peft",
+  "path": "docs/source/package_reference/glora.md",
+  "ref": "main",
+  "commit_sha": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+  "content_hash": "73279a3041536bde28c2b27f0e7238db86e5e8d6792fccd9fd82cdd8c51bbf63"
+}

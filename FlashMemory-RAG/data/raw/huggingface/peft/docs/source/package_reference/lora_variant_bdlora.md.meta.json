@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "peft",
+  "path": "docs/source/package_reference/lora_variant_bdlora.md",
+  "ref": "main",
+  "commit_sha": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+  "content_hash": "47a7efef610a663a869a6c35da278da6c22fe7e137a7a79a6cedba762120189b"
+}

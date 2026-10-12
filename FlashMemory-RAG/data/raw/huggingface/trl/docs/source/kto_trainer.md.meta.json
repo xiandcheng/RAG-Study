@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "trl",
+  "path": "docs/source/kto_trainer.md",
+  "ref": "main",
+  "commit_sha": "72cf37df714d3183e8e96ec391d474b26eaa30b6",
+  "content_hash": "7a0e4f51e48ec7b55ab35b85b318b874a351f240b6fd91b7f5e64e5800a1edf2"
+}

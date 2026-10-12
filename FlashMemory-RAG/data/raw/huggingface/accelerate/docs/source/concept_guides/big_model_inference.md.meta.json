@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "accelerate",
+  "path": "docs/source/concept_guides/big_model_inference.md",
+  "ref": "main",
+  "commit_sha": "4ebc726849a2d7f03c16198847c22954e224dd87",
+  "content_hash": "5dc22e34ea523f7ebaecdf2668dec4e0666ad6f5d9b2603ea43ef4504996f74e"
+}

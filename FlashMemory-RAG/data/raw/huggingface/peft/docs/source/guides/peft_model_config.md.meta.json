@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "peft",
+  "path": "docs/source/guides/peft_model_config.md",
+  "ref": "main",
+  "commit_sha": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+  "content_hash": "cffd12cb1726da30dcf973b1f241c75d71c74d93ab98005829d7cdabd1e23b60"
+}

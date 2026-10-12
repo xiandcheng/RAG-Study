@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "trl",
+  "path": "docs/source/gkd_trainer.md",
+  "ref": "main",
+  "commit_sha": "72cf37df714d3183e8e96ec391d474b26eaa30b6",
+  "content_hash": "e0776c98d13249f2a7f96943f70415b5e55230bdcfaa9717ba2f05768b6ef0f4"
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "peft",
+  "path": "docs/source/package_reference/delora.md",
+  "ref": "main",
+  "commit_sha": "9db0f37197c95ee7010fdcff107355d1cefb3f34",
+  "content_hash": "542c32553f493933ed0a3a6df9b14aa21cf3f84f56f4f4a4cd89ff083273dcd9"
+}

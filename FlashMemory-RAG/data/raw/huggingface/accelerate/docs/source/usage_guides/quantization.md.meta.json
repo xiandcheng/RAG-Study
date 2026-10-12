@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "owner": "huggingface",
+  "repo": "accelerate",
+  "path": "docs/source/usage_guides/quantization.md",
+  "ref": "main",
+  "commit_sha": "4ebc726849a2d7f03c16198847c22954e224dd87",
+  "content_hash": "a4f4b08521be33e06938663a8afde9242ef517d8802b5f9124656ae527f27646"
+}
