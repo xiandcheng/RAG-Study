@@ -1,6 +1,7 @@
 from app.prompt_builder import PromptBuilder
 from app.generator import LLMGenerator
 from app.retriever import Retriever
+from collections.abc import Iterator
 
 
 class RAGPipeline:
@@ -17,3 +18,8 @@ class RAGPipeline:
         answer = self.generator.generate(messages)
 
         return answer
+
+    def ask_stream(self, query: str, top_k: int = 3) -> Iterator[str]:
+        results = self.retriever.retrieve(query, top_k=top_k)
+        messages = self.prompt_builder.build(query, results)
+        yield from self.generator.generate_stream(messages)

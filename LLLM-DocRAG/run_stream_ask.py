@@ -1,0 +1,26 @@
+from app.pipeline import RAGPipeline
+from app.prompt_builder import PromptBuilder
+from app.generator import LLMGenerator
+from app.retriever import Retriever
+from pathlib import Path
+from app.vector_store import FAISSVectorStore
+from app.embedding import EmbeddingModel
+import os
+
+
+api_key=os.getenv("DEEPSEEK_API_KEY")
+path = Path("data/vector_store")
+base_url = "https://api.deepseek.com"
+model_name = "deepseek-flash"
+store= FAISSVectorStore.load(path)
+embedding = EmbeddingModel()
+prompt_builder = PromptBuilder()
+retriever = Retriever(embedding,store)
+generator = LLMGenerator(api_key,base_url,model_name)
+
+rag = RAGPipeline(retriever,prompt_builder,generator)
+query = "LoRA 为什么能够减少可训练参数？"
+
+for content in rag.ask_stream(query, top_k=3):
+    print(content, end="", flush=True)
+
